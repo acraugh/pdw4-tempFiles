@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:ronav  Version:1.11.0.0 - Tue Jun 18 12:57:06 EDT 2019 -->
+  <!-- Generated from the PDS4 Information Model Version 1.11.0.0 - System Build 9a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.11.0.0 - pds: - Common Dictionary - N/A                                 -->
+  <!-- 1.11.0.0 - ronav: - Rosetta Mission NAVCAM Instrument Dictionary - Ingest -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/ronav/v1"
+    xmlns:ronav="http://pds.nasa.gov/pds4/mission/ronav/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.11.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+        This dictionary was prepared by the Small Bodies Node for the Rosetta PDS3 to PDS4
+        migration.  The permanent authority for the completed data and dictionary is the 
+        Planetary Science Archive of the European Space Agency.
+        
+        "ACR" in 'submitter_name' indicates Anne Raugh.
+    
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="NAVCAM_Parameters" type="ronav:NAVCAM_Parameters"> </xs:element>
+
+  <xs:complexType name="Imaging_Parameters">
+    <xs:annotation>
+      <xs:documentation> This class lists imaging parameters specific to
+        the Rosetta NAVCAM data. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="image_time" type="ronav:image_time" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="absolute_frame_number" type="ronav:absolute_frame_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="mode_frame_number" type="ronav:mode_frame_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="cover_position" type="ronav:cover_position" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="data_valid" type="ronav:data_valid" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="missing_lines" type="ronav:missing_lines" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="radiance_DN_step" type="ronav:radiance_DN_step" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="ronav:cover_position = ('DEFOC_NATT', 'FOC_ATT', 'FOC_NATT', 'UNDEFINED_POSITION')"/> -->
+    <!-- <xs:assert test="ronav:data_valid = ('NOT_OK', 'OK')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="Instrument_Temperatures">
+    <xs:annotation>
+      <xs:documentation> This class lists temperatures recorded at
+        specific points in the optical path during the observation.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CCD_T1_temperature" type="ronav:CCD_T1_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="OPTICS_T7_temperature" type="ronav:OPTICS_T7_temperature" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="NAVCAM_Parameters">
+    <xs:annotation>
+      <xs:documentation> This class presents the Rosetta NAVCAM-specific
+        metadata. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Imaging_Parameters" type="ronav:Imaging_Parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Pixel_Counts" type="ronav:Pixel_Counts" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Instrument_Temperatures" type="ronav:Instrument_Temperatures" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Pixel_Counts">
+    <xs:annotation>
+      <xs:documentation> This class lists various pixel counts for the
+        corresponding image. </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bad_row_pixels" type="ronav:bad_row_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="missing_pixels" type="ronav:missing_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="negative_pixels" type="ronav:negative_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pair_averaged_pixels" type="ronav:pair_averaged_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="pair_interpolated_pixels" type="ronav:pair_interpolated_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="saturated_pixels" type="ronav:saturated_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vignetting_pixels" type="ronav:vignetting_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="warm_pixels" type="ronav:warm_pixels" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="CCD_T1_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="CCD_T1_temperature">
+    <xs:annotation>
+      <xs:documentation> Temperature of the CCD detector
+        </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ronav:CCD_T1_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="OPTICS_T7_temperature_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="OPTICS_T7_temperature">
+    <xs:annotation>
+<xs:documentation> Temperature of the optics </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ronav:OPTICS_T7_temperature_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="absolute_frame_number">
+    <xs:annotation>
+      <xs:documentation> Sequence number of this CCD frame since the
+        corresponding camera was started up </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="4294967296"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bad_row_pixels">
+    <xs:annotation>
+      <xs:documentation> Number of bad row pixels ***TBD*** [This
+        definition doesn't make sense to me] </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="cover_position">
+    <xs:annotation>
+      <xs:documentation> Current position of the cover/attenuation
+        mechanism </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="data_valid">
+    <xs:annotation>
+      <xs:documentation> This attribute indicates the result of a
+        periodic instrument health check performed every 16 seconds on
+        the CAM parameters. The value reported is a simple pass/fail.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="image_time">
+    <xs:annotation>
+      <xs:documentation> The UTC mid-point of the exposure, calculated
+        as the listed "start_date_time" plus half the
+        "exposure_durations". </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Date_Time_YMD_UTC">
+  <!-- format="YYYY-MM-DDTHH:MM:SS.SSSZ" -->
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="missing_lines">
+    <xs:annotation>
+      <xs:documentation> The number of lines missing from the image. A
+        zero indicates a complete image. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1022"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="missing_pixels">
+    <xs:annotation>
+<xs:documentation> Number of missing pixels </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mode_frame_number">
+    <xs:annotation>
+      <xs:documentation> Sequence number of this CCD frame relative to
+        the start of the current mode. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="negative_pixels">
+    <xs:annotation>
+      <xs:documentation> Number of pixels with negative values after
+        correction </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pair_averaged_pixels">
+    <xs:annotation>
+      <xs:documentation> Number of averaged pixel-pair pixels
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="pair_interpolated_pixels">
+    <xs:annotation>
+      <xs:documentation> Number of interpolated pixel-pair pixels
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="radiance_DN_step_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="radiance_DN_step">
+    <xs:annotation>
+      <xs:documentation> Radiance step corresponding to one digital
+        number (1 DN) </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="ronav:radiance_DN_step_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Spectral_Radiance" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="saturated_pixels">
+    <xs:annotation>
+<xs:documentation> Number of saturated pixels </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="vignetting_pixels">
+    <xs:annotation>
+      <xs:documentation> ***TBD*** [Not defined in documentation]
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="warm_pixels">
+    <xs:annotation>
+      <xs:documentation> Number of interpolated warm pixels
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="1048576"/>
+	   </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

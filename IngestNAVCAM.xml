@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
+    <name>Rosetta Mission NAVCAM Instrument Dictionary</name>
+    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <full_name>Anne Raugh</full_name>
+    <steward_id>psa</steward_id>
+    <namespace_id>ronav</namespace_id>
+    <comment>
+        This dictionary was prepared by the Small Bodies Node for the Rosetta PDS3 to PDS4
+        migration.  The permanent authority for the completed data and dictionary is the 
+        Planetary Science Archive of the European Space Agency.
+        
+        "ACR" in 'submitter_name' indicates Anne Raugh.
+    </comment>
+    <last_modification_date_time>2019-06-15</last_modification_date_time>
+    
+    <!--
+        Attribute Definitions.  These are listed alphabetically. 
+        
+        Definitions come mainly from the Rosetta PDS3 keyword definition files.
+    -->
+    
+    <DD_Attribute>
+        <name>absolute_frame_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>absolute_frame_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Sequence number of this CCD frame since the corresponding camera was started up
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>4294967296</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>bad_row_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>bad_row_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of bad row pixels
+            ***TBD*** [This definition doesn't make sense to me]
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>CCD_T1_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>CCD_T1_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Temperature of the CCD detector
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>cover_position</name>
+        <version_id>1.0</version_id>
+        <local_identifier>cover_position</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Current position of the cover/attenuation mechanism
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>UNDEFINED_POSITION</value>
+                <value_meaning>
+                    ***TBD*** [This value was not listed in the interface document but appears in metadata.]
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>FOC_ATT</value>
+                <value_meaning>
+                    Focused, with attenuation
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>FOC_NATT</value>
+                <value_meaning>
+                    Focused, without attenuation
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>DEFOC_NATT</value>
+                <value_meaning>
+                    Defocused, without attenuation (this is the default)
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>data_valid</name>
+        <version_id>1.0</version_id>
+        <local_identifier>data_valid</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            This attribute indicates the result of a periodic instrument health check 
+            performed every 16 seconds on the CAM parameters.  The value reported is 
+            a simple pass/fail.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>OK</value>
+                <value_meaning>
+                    Instrument health check passed
+                </value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>NOT_OK</value>
+                <value_meaning>
+                    Instrument health check reported at least one non-nominal value (for
+                    example, CCD temperature outside of optimal performance range) 
+                </value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>image_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>image_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            The UTC mid-point of the exposure, calculated as the listed "start_date_time" plus half the 
+            "exposure_durations".
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>missing_lines</name>
+        <version_id>1.0</version_id>
+        <local_identifier>missing_lines</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            The number of lines missing from the image. A zero indicates a complete image.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1022</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>missing_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>missing_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of missing pixels
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>mode_frame_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mode_frame_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Sequence number of this CCD frame relative to the start of the current mode.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>4294967295</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>negative_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>negative_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of pixels with negative values after correction
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>OPTICS_T7_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>OPTICS_T7_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Temperature of the optics
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>pair_averaged_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>pair_averaged_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of averaged pixel-pair pixels
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>pair_interpolated_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>pair_interpolated_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of interpolated pixel-pair pixels
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>radiance_DN_step</name>
+        <version_id>1.0</version_id>
+        <local_identifier>radiance_DN_step</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Radiance step corresponding to one digital number (1 DN)
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Spectral_Radiance</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>saturated_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>saturated_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of saturated pixels
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>vignetting_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>vignetting_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            ***TBD*** [Not defined in documentation]
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>warm_pixels</name>
+        <version_id>1.0</version_id>
+        <local_identifier>warm_pixels</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Number of interpolated warm pixels
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1048576</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>window_position_along_column</name>
+        <version_id>1.0</version_id>
+        <local_identifier>sindow_position_along_column</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Window center pixel Y coordinate in the CCD reference frame
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1023</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <DD_Attribute>
+        <name>window_position_along_row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>sindow_position_along_row</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            Window center pixel X coordinate in the CCD reference frame
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>1023</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    
+    <!--
+        Class definitions.  The nesting in this dictionary is not very deep, so these are 
+        alphabetical except for the wrapper class, which is listed at the bottom for easy
+        editing.
+    -->
+    
+    <DD_Class>
+        <name>Imaging_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Imaging_Parameters</local_identifier>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            This class lists imaging parameters specific to the Rosetta NAVCAM 
+            data.
+        </definition>
+        <DD_Association>
+            <identifier_reference>image_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>absolute_frame_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mode_frame_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>window_position_along_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>window_position_along_column</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>cover_position</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>data_valid</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>missing_lines</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>radiance_DN_step</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Instrument_Temperatures</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Instrument_Temperatures</local_identifier>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            This class lists temperatures recorded at specific points in the optical
+            path during the observation.
+        </definition>
+        <DD_Association>
+            <identifier_reference>CCD_T1_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>OPTICS_T7_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <DD_Class>
+        <name>Pixel_Counts</name>
+        <version_id>1.0</version_id>
+        <local_identifier>Pixel_Counts</local_identifier>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            This class lists various pixel counts for the corresponding image.
+        </definition>
+        <DD_Association>
+            <identifier_reference>bad_row_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>missing_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>negative_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pair_averaged_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>pair_interpolated_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>saturated_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>vignetting_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>warm_pixels</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    
+    <!--
+        Here's the wrapper class, to group all the NAVCAM dictionary classes:
+    -->
+    
+    <DD_Class>
+        <name>NAVCAM_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>NAVCAM_Parameters</local_identifier>
+        <submitter_name>ACR</submitter_name>
+        <definition>
+            This class presents the Rosetta NAVCAM-specific metadata.
+        </definition>
+        <element_flag>true</element_flag>  <!-- Don't forget this in your wrapper class! -->
+        <DD_Association>
+            <identifier_reference>Imaging_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Pixel_Counts</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>Instrument_Temperatures</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+</Ingest_LDD>

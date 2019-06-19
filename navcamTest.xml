@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="PDS4_RONAV_1B00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<!-- TEST LABEL for Rosetta NAVCAM instrument dictionary classes -->
+
+<Product_Observational 
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ronav="http://pds.nasa.gov/pds4/mission/ronav/v1"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd
+                        http://pds.nasa.gov/pds4/mission/ronav/v1 PDS4_RONAV_1B00.xsd">
+    <Identification_Area>
+        <logical_identifier>urn:esa:psa:bundle:collection:product</logical_identifier>
+        <version_id>1.0</version_id>
+        <title>Test Label for Rosetta NAVCAM Instrument Classes</title>
+        <information_model_version>1.11.0.0</information_model_version>
+        <product_class>Product_Observational</product_class>
+    </Identification_Area>
+    
+    <Observation_Area>
+        <Time_Coordinates>
+            <start_date_time xsi:nil="true" nilReason="inapplicable"/>
+            <stop_date_time xsi:nil="true" nilReason="inapplicable"/>
+        </Time_Coordinates>
+        
+        <Investigation_Area>
+            <name>None</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:mission:none</lid_reference>
+                <reference_type>data_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+            <Observing_System_Component>
+                <name>None</name>
+                <type>Instrument</type>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>None</name>
+            <type>Dwarf Planet</type>
+        </Target_Identification>
+        
+        <Mission_Area>
+            <ronav:NAVCAM_Parameters>
+                <ronav:Imaging_Parameters>
+                    <ronav:image_time>2019-06-03T01:23:45.6Z</ronav:image_time>
+                    <ronav:absolute_frame_number>123</ronav:absolute_frame_number>
+                    <ronav:mode_frame_number>45</ronav:mode_frame_number>
+                    <ronav:cover_position>FOC_ATT</ronav:cover_position>
+                    <ronav:data_valid>OK</ronav:data_valid>
+                    <ronav:missing_lines>0</ronav:missing_lines>
+                    <ronav:radiance_DN_step unit="W*m**-2*sr**-1*nm**-1">9.87</ronav:radiance_DN_step>
+                </ronav:Imaging_Parameters>
+                <ronav:Pixel_Counts>
+                    <ronav:bad_row_pixels>1</ronav:bad_row_pixels>
+                    <ronav:missing_pixels>1</ronav:missing_pixels>
+                    <ronav:negative_pixels>1</ronav:negative_pixels>
+                    <ronav:pair_averaged_pixels>1</ronav:pair_averaged_pixels>
+                    <ronav:pair_interpolated_pixels>1</ronav:pair_interpolated_pixels>
+                    <ronav:saturated_pixels>1</ronav:saturated_pixels>
+                    <ronav:vignetting_pixels>1</ronav:vignetting_pixels>
+                    <ronav:warm_pixels>1</ronav:warm_pixels>
+                </ronav:Pixel_Counts>
+                <ronav:Instrument_Temperatures>
+                    <ronav:CCD_T1_temperature unit="degC">-31.2</ronav:CCD_T1_temperature>
+                    <ronav:OPTICS_T7_temperature unit="degC">-40.0</ronav:OPTICS_T7_temperature>
+                </ronav:Instrument_Temperatures>
+            </ronav:NAVCAM_Parameters>
+        </Mission_Area>
+    </Observation_Area>
+    
+    <File_Area_Observational>
+        <File>
+            <file_name>No.Data</file_name>
+        </File>
+        
+        <Array_2D_Image>
+            <offset unit="byte">0</offset>
+            <axes>2</axes>
+            <axis_index_order>Last Index Fastest</axis_index_order>
+            <Element_Array>
+                <data_type>SignedMSB2</data_type>
+            </Element_Array>
+            <Axis_Array>
+                <axis_name>Sample</axis_name>
+                <elements>1024</elements>
+                <sequence_number>1</sequence_number>
+            </Axis_Array>
+            <Axis_Array>
+                <axis_name>Line</axis_name>
+                <elements>1024</elements>
+                <sequence_number>2</sequence_number>
+            </Axis_Array>
+        </Array_2D_Image>
+    </File_Area_Observational>
+</Product_Observational>
