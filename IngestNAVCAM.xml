@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
+<!--
+  This is where I put important notes to myself while I'm developing dictionaries.  Things like:
+
+  This is a VERY preliminary draft of an instrument dictionary for the Rosetta migration. Some key discipline dictionaries
+  are still in development and there are PSA conventions that may or may not be properly followed in this file.
+
+  TBD elements are indicated by the string "***TBD***". 
+-->
+
 <Ingest_LDD xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1B00.xsd">
@@ -563,4 +572,8 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
     </DD_Class>
+    
+    <!--
+      There are no Schematron Rules to define for this dictionary as yet.
+    -->
 </Ingest_LDD>
