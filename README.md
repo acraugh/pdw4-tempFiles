@@ -25,6 +25,10 @@ The XML Schema Definition Language (XSD) file produced by running the *IngestNAV
 
 An example PDS3 label for a NAVCAM data product.  I used this in conjunction with the instrument interface document to determine the attributes and meanings needed for the PDS4 version.
 
+### kwWorksheet.xlsx
+
+Excel spreadsheet in which I collected my attribute information.  There are separate sheets for each step in the process, starting with the candidate attribute list (identified by PDS3 keyword names) and ending with my class organization and attribute data. This is what I used to code the *IngestNAVCAM.xml* file.
+
 ### navcamTest.lbl
 
 My test label, which will currently show as validate if validated against the schemas it references. Note the clearly dummy values that are inserted in places like ```<logical_identifier>``` for examples of valid but clearly fake metadata.
